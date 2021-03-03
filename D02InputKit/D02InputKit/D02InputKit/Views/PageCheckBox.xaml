@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:input="clr-namespace:Plugin.InputKit.Shared.Controls;assembly=Plugin.InputKit"
+             x:Class="D02InputKit.Views.PageCheckBox"
+             Title="Ejemplo CheckBox">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Priority="1" />
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <AbsoluteLayout BackgroundColor="Transparent" Margin="15,0,0,0" HorizontalOptions="Fill">
+            <Grid VerticalOptions="CenterAndExpand" Padding="5,5,0,0" BackgroundColor="Transparent" HorizontalOptions="CenterAndExpand">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0">
+                    <Frame HasShadow="False" Padding="10,0,0,10" BackgroundColor="Transparent" BorderColor="#6fb7ff">
+                        <StackLayout Grid.Row="0" x:Name="fSecDeterminar" IsVisible="True">
+                            <input:CheckBox x:Name="CUR01" Text="Ecuaciones Diferenciales" Type="Check"/>
+                            <input:CheckBox x:Name="CUR02" Text="Programación Web Distribuido" Type="Cross"/>
+                            <input:CheckBox x:Name="CUR03" Text="Arquitectura de Software" Type="Star"/>
+                            <input:CheckBox x:Name="CUR04" Text="Modelamiento de base de datos" Type="Box"/>
+                            <input:CheckBox x:Name="CUR05" Text="Arquitectura de Software" Type="Material" />
+                            <!--<input:CheckBox Text="Arquitectura de Software" Type="Custom" />-->
+                        </StackLayout>
+                    </Frame>
+                </Grid>
+                <Grid Grid.Row="1">
+                    <StackLayout>
+                        <Button x:Name="btnMatricular" Clicked="mat_Clicked" Text="Matricular" FontSize="Small" TextColor="White" 
+                                BackgroundColor="#f50057" CornerRadius="5" WidthRequest="100" HeightRequest="45"/>
+                    </StackLayout>
+                </Grid>
+                <Grid Grid.Row="2">
+                    <Frame Padding="10,10,10,10" x:Name="fSecValueCurso" IsVisible="True">
+                        <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal">
+                            <Label Text="TOTAL DE CURSOS:" WidthRequest="160" TextColor="#424949" HorizontalOptions="StartAndExpand" FontSize="15" VerticalOptions="Center"/>
+
+                            <Frame BorderColor="#6fb7ff" HasShadow="False" Padding="0">
+                                <Editor x:Name="totalCursos" WidthRequest="130" FontSize="26" Placeholder="0" Text=""  VerticalOptions="StartAndExpand" 
+                                        HorizontalOptions="StartAndExpand" Keyboard="Numeric" MaxLength="3" HeightRequest="55" IsEnabled="False"/>
+                            </Frame>
+                        </StackLayout>
+                    </Frame>
+                </Grid>
+                <Grid Grid.Row="3">
+                    <Frame Padding="10,10,10,10" x:Name="fSecValueCredito" IsVisible="True">
+                        <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal">
+                            <Label Text="TOTAL DE CRÉDITOS:" WidthRequest="160" TextColor="#424949" HorizontalOptions="StartAndExpand" FontSize="15" VerticalOptions="Center"/>
+
+                            <Frame BorderColor="#6fb7ff" HasShadow="False" Padding="0">
+                                <Editor x:Name="totalCreditos" WidthRequest="130" FontSize="26" Placeholder="0" Text=""  VerticalOptions="StartAndExpand" 
+                                        HorizontalOptions="StartAndExpand" Keyboard="Numeric" MaxLength="3" HeightRequest="55" IsEnabled="False"/>
+                            </Frame>
+                        </StackLayout>
+                    </Frame>
+                </Grid>
+            </Grid>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

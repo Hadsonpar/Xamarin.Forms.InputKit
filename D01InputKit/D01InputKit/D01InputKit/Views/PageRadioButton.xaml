@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:input="clr-namespace:Plugin.InputKit.Shared.Controls;assembly=Plugin.InputKit"
+             x:Class="D01InputKit.Views.PageRadioButton"
+             Title="RadioButton">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Priority="1" />
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <AbsoluteLayout BackgroundColor="White" Margin="5,0,5,5">
+            <Grid VerticalOptions="FillAndExpand" Padding="8,5,8,10" BackgroundColor="Transparent">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0">
+                    <StackLayout HorizontalOptions="FillAndExpand" Spacing="10">
+
+                        <Frame Padding="10,10,10,10" x:Name="fSecDeterminar" IsVisible="True">
+                            <input:RadioButtonGroupView HorizontalOptions="FillAndExpand" Orientation="Horizontal" x:Name="tipIngreso" SelectedItemChanged="ingSelected">
+                                <input:RadioButton x:Name="ingSelectedTD" TextFontSize="17" TextColor="#424949" Text="Automático" Value="TD" IsChecked="True"/>
+                                <input:RadioButton x:Name="ingSelectedPD" TextFontSize="17" TextColor="#424949" Text="Manual" Value="PD" />
+                            </input:RadioButtonGroupView>
+                        </Frame>
+                    </StackLayout>
+                </Grid>
+
+                <Grid Grid.Row="1">
+                    <Frame Padding="10,10,10,10" x:Name="fSecValue" IsVisible="True">
+                        <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal">
+                            <Label Text="VALOR:" WidthRequest="50" TextColor="#424949" HorizontalOptions="StartAndExpand" FontSize="15" VerticalOptions="Center"/>
+
+                            <Frame BorderColor="#6fb7ff" HasShadow="False" Padding="0">
+                                <Editor x:Name="editorValueGlu" WidthRequest="130" FontSize="16" Placeholder="Ingresa Valor" Text=""  VerticalOptions="StartAndExpand" 
+                                        HorizontalOptions="StartAndExpand" Keyboard="Numeric" MaxLength="3" HeightRequest="45"/>
+                            </Frame>
+
+                            <Button x:Name="btnIng" Clicked="ing_Clicked" Text="Ingresar" FontSize="Small" TextColor="White" 
+                                    BackgroundColor="#f50057" CornerRadius="5" WidthRequest="100" HeightRequest="45"/>
+                        </StackLayout>
+                    </Frame>
+                </Grid>
+
+                <Grid Grid.Row="2">
+                    <Frame Padding="10,10,10,10" x:Name="comentValue" IsVisible="True">
+                        <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal">
+                            <Frame BorderColor="#6fb7ff" HasShadow="False" Padding="0">
+                                <StackLayout>
+                                    <Editor WidthRequest="305" Margin="4,0,4,0" x:Name="comentValueGlu" FontSize="Small" Placeholder="Ingresa una nota" Text="" 
+                                            HorizontalOptions="FillAndExpand"  VerticalOptions="FillAndExpand" Keyboard="Text" MaxLength="100" HeightRequest="55"/>
+                                </StackLayout>
+                            </Frame>
+                        </StackLayout>
+                    </Frame>
+                </Grid>
+
+                <Grid Grid.Row="3">
+                    <Frame Padding="10,5,10,5" x:Name="fSecDateTime" IsVisible="False">
+                        <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal">
+                            <Label Text="FECHA:" TextColor="#424949" HorizontalOptions="StartAndExpand" FontSize="15" VerticalOptions="Center"/>
+                            <DatePicker Format="dd/MM/yyyy"
+                                             x:Name="dpFechaIng" TextColor="#424949" FontSize="16"            
+                                             HorizontalOptions="EndAndExpand"  BackgroundColor="Transparent"
+                                             MinimumDate="01/01/1920" MaximumDate="12/31/2030" />
+
+                            <Label Text="HORA:" TextColor="#424949" HorizontalOptions="StartAndExpand" FontSize="15" VerticalOptions="Center"/>
+                            <TimePicker Format="hh:mm tt"
+                                            x:Name="tpickerTime" TextColor="#424949" FontSize="16" HorizontalOptions="EndAndExpand"  BackgroundColor="Transparent" />
+
+                        </StackLayout>
+                    </Frame>
+                </Grid>
+
+                <Grid Grid.Row="4">
+                    <Frame x:Name="fGrillaViewDetails" HasShadow="False" Padding="5" BackgroundColor="Transparent" BorderColor="#6fb7ff">
+                        <StackLayout>
+                            <Label Text="VALOR:" WidthRequest="80" TextColor="#424949" HorizontalOptions="StartAndExpand" FontSize="15" VerticalOptions="Center"/>
+                            <Label x:Name="lblValor" FontSize="16" Text="................."  VerticalOptions="EndAndExpand" 
+                                    HorizontalOptions="StartAndExpand"/>
+                            
+                            <Label Text="NOTA:" WidthRequest="80" TextColor="#424949" HorizontalOptions="StartAndExpand" FontSize="15" VerticalOptions="Center"/>
+                            <Label x:Name="lblNota" FontSize="16" Text="................."  VerticalOptions="EndAndExpand" 
+                                    HorizontalOptions="StartAndExpand"/>
+                            
+                            <Label Text="FECHA:" WidthRequest="80" TextColor="#424949" HorizontalOptions="StartAndExpand" FontSize="15" VerticalOptions="Center" 
+                                   IsVisible="False" x:Name="etiquetaFecha" />
+                            <Label x:Name="lblFecha" FontSize="16" Text="................."  VerticalOptions="EndAndExpand" IsVisible="False"/>
+                        </StackLayout>
+                    </Frame>
+                </Grid>
+            </Grid>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>
